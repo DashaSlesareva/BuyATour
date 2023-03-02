@@ -13,7 +13,7 @@ public class SQLHelper {
     public static QueryRunner runner = new QueryRunner();
     static String url = System.getProperty("db.url");
     static String user = "app";
-    static String password = "[ass";
+    static String password = "pass";
     private SQLHelper() {
     }
 
