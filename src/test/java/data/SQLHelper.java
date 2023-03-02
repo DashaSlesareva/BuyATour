@@ -11,23 +11,15 @@ import java.sql.SQLException;
 
 public class SQLHelper {
     public static QueryRunner runner = new QueryRunner();
-
+    static String url = System.getProperty("db.url");
+    static String user = "app";
+    static String password = "[ass";
     private SQLHelper() {
     }
 
-    //PostgreSQL local
     private static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", "app", "pass");
+        return DriverManager.getConnection(url, user, password);
     }
-    //MySQL local
-//    private static Connection getConn() throws SQLException {
-//        return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
-//    }
-
-    //MySQL remote
-//    private static Connection getConn() throws SQLException {
-//        return DriverManager.getConnection("url=jdbc:mysql://192.168.1.100:3306/app", "app", "pass");
-//    }
 
     public static String getStatusCard() {
         var codeSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
