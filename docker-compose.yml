@@ -19,6 +19,16 @@ services:
       - MYSQL_USER=app
       - MYSQL_PASSWORD=pass
 
+#  gate-simulator:
+#    image: node:18-alpine
+#    ports:
+#      - '9999:9999'
+#    volumes:
+#      - ./gate-simulator:/app
+#    working_dir: /app
+#    command:
+#      - npm
+#      - start
   gate-simulator:
     image: node:18-alpine
     ports:
