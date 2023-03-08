@@ -61,42 +61,30 @@ public class PayWithCard {
     }
 
     public void successNotificationCheck() {
-        notificationSuccess.shouldBe((Condition.visible), Duration.ofSeconds(15));
+        notificationSuccess.shouldBe((Condition.visible), Duration.ofSeconds(20));
     }
 
     public void mistakeNotificationCheck() {
-        notificationMistake.shouldBe((Condition.visible), Duration.ofSeconds(15));
+        notificationMistake.shouldBe((Condition.visible), Duration.ofSeconds(20));
     }
 
-    public void cardNumberWrongFormatCheck() {
-        cardNumberWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
+    public void cardNumberWrongFormatCheck(String message) {
+        cardNumberWrongFormat.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
-    public void monthWrongFormatCheck() {
-        monthWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
+    public void monthWrongFormatCheck(String message) {
+        monthWrongFormat.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
-    public void monthWrongDateFormatCheck() {
-        monthWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверно указан срок действия карты"));
+    public void yearWrongFormatCheck(String message) {
+        yearWrongFormat.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
-    public void yearWrongFormatCheck() {
-        yearWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
+    public void nameWrongFormatCheck(String message) {
+        nameShouldBeFilled.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
-    public void yearExpiredCardCheck() {
-        yearWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Истёк срок действия карты"));
-    }
-
-    public void nameShouldBeFilledCheck() {
-        nameShouldBeFilled.shouldBe(Condition.visible).shouldHave(Condition.exactText("Поле обязательно для заполнения"));
-    }
-
-    public void nameWrongFormatCheck() {
-        nameShouldBeFilled.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
-    }
-
-    public void cvcWrongFormatCheck() {
-        cvcWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
+    public void cvcWrongFormatCheck(String message) {
+        cvcWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 }

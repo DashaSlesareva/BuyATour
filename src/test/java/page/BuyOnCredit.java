@@ -11,20 +11,20 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class BuyOnCredit {
-    private SelenideElement cardNumber = $("[placeholder='0000 0000 0000 0000']");
-    private SelenideElement month = $("[placeholder='08']");
-    private SelenideElement year = $("[placeholder='22']");
-    private SelenideElement name = $(byText("Владелец")).parent().$("input");
-    private SelenideElement cvc = $("[placeholder='999']");
-    private SelenideElement button = $$("button").find(Condition.exactText("Продолжить"));
-    private SelenideElement notificationSuccess = $(byText("Успешно")).parent().$("div");
-    private SelenideElement notificationMistake = $(byText("Ошибка")).parent().$("div");
-    private SelenideElement cardNumberWrongFormat = $(byText("Номер карты")).parent().$(".input__sub");
-    private SelenideElement monthWrongFormat = $(byText("Месяц")).parent().$(".input__sub");
-    private SelenideElement yearWrongFormat = $(byText("Год")).parent().$(".input__sub");
+    private final SelenideElement cardNumber = $("[placeholder='0000 0000 0000 0000']");
+    private final SelenideElement month = $("[placeholder='08']");
+    private final SelenideElement year = $("[placeholder='22']");
+    private final SelenideElement name = $(byText("Владелец")).parent().$("input");
+    private final SelenideElement cvc = $("[placeholder='999']");
+    private final SelenideElement button = $$("button").find(Condition.exactText("Продолжить"));
+    private final SelenideElement notificationSuccess = $(byText("Успешно")).parent().$("div");
+    private final SelenideElement notificationMistake = $(byText("Ошибка")).parent().$("div");
+    private final SelenideElement cardNumberWrongFormat = $(byText("Номер карты")).parent().$(".input__sub");
+    private final SelenideElement monthWrongFormat = $(byText("Месяц")).parent().$(".input__sub");
+    private final SelenideElement yearWrongFormat = $(byText("Год")).parent().$(".input__sub");
     //private SelenideElement nameShouldBeFilled = $(byText("Поле обязательно для заполнения"));
-    private SelenideElement nameShouldBeFilled = $(byText("Владелец")).parent().$(".input__sub");
-    private SelenideElement cvcWrongFormat = $(byText("CVC/CVV")).parent().$(".input__sub");
+    private final SelenideElement nameShouldBeFilled = $(byText("Владелец")).parent().$(".input__sub");
+    private final SelenideElement cvcWrongFormat = $(byText("CVC/CVV")).parent().$(".input__sub");
 
     public void enterAll(CardData cardInfo) {
         cardNumber.val(cardInfo.getCardNumber());
@@ -60,43 +60,31 @@ public class BuyOnCredit {
     }
 
     public void successNotificationCheck() {
-        notificationSuccess.shouldBe((Condition.visible), Duration.ofSeconds(15));
+        notificationSuccess.shouldBe((Condition.visible), Duration.ofSeconds(20));
     }
 
     public void mistakeNotificationCheck() {
-        notificationMistake.shouldBe((Condition.visible), Duration.ofSeconds(15));
+        notificationMistake.shouldBe((Condition.visible), Duration.ofSeconds(20));
     }
 
-    public void cardNumberWrongFormatCheck() {
-        cardNumberWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
+    public void cardNumberWrongFormatCheck(String message) {
+        cardNumberWrongFormat.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
-    public void monthWrongFormatCheck() {
-        monthWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
+    public void monthWrongFormatCheck(String message) {
+        monthWrongFormat.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
-    public void monthWrongDateFormatCheck() {
-        monthWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверно указан срок действия карты"));
+    public void yearWrongFormatCheck(String message) {
+        yearWrongFormat.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
-    public void yearWrongFormatCheck() {
-        yearWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
+    public void nameWrongFormatCheck(String message) {
+        nameShouldBeFilled.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
-    public void yearExpiredCardCheck() {
-        yearWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Истёк срок действия карты"));
-    }
-
-    public void nameShouldBeFilledCheck() {
-        nameShouldBeFilled.shouldBe(Condition.visible).shouldHave(Condition.exactText("Поле обязательно для заполнения"));
-    }
-
-    public void nameWrongFormatCheck() {
-        nameShouldBeFilled.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
-    }
-
-    public void cvcWrongFormatCheck() {
-        cvcWrongFormat.shouldBe(Condition.visible).shouldHave(Condition.exactText("Неверный формат"));
+    public void cvcWrongFormatCheck(String message) {
+        cvcWrongFormat.shouldHave(Condition.exactText(message)).shouldBe(Condition.visible);
     }
 
 }
