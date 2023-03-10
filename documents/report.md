@@ -12,12 +12,6 @@
 * 70% успешных тест-кейсов (44/62)
 * 30% успешных тест-кейсов (18/62)
 
-#### Сформированы 2 вида отчётов:
-* [Gradle отчёт](https://github.com/YuriKopshev/DiplomQA-Automation/issues/2)
-* [AllureReport отчёт](https://github.com/YuriKopshev/DiplomQA-Automation/issues/1)
-
 ### Общие рекомендации
-* Исправить баги указанные в [issue](https://github.com/YuriKopshev/DiplomQA-Automation/issues)
-* При нажатии на кнопку «Купить» или  «Купит в кредит» прописать изменение цвета кнопок
-* Сделать кнопку "Продолжить" не активной, пока не будут введены все корректные данные
-* При вводе неверных данных, предусмотреть выплывающие окна с подсказками 
+* Исправить баги, указанные в [Issues](https://github.com/DashaSlesareva/BuyATour/issues)
+* Составить документацию по работе с приложением
