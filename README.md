@@ -16,16 +16,33 @@
 
 ### Prerequisites
 
-Что нужно установить на ПК для использования (например: Git, браузер и т.д.).
-
-```
-Примеры
-```
+Для использования проекта на ПК нужно установть:
+* Git
+* браузер Google Chrome
+* IntelliJ IDEA CE
+* Desktop Docker
 
 ### Установка и запуск
 
-Пошаговый процесс установки и запуска
-
-```
-Примеры
-```
+* Запустите приложение Desktop Docker
+* Для запуска контейнеров с MySql, PostgreSQL и Node.js используйте команду `docker-compose up`
+* Запуск приложения под MySQL
+    * для запуска приложения используйте команду 
+    ```
+    java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar aqa-shop.jar
+    ```
+    * для запуска тестов используйте команду 
+    ```
+    ./gradlew -Ddb.url=jdbc:mysql://localhost:3306/app clean test
+    ```
+ * Запуск приложения под PostgreSQL
+    * для запуска приложения используйте команду 
+    ```
+    java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar aqa-shop.jar
+    ```
+    * для запуска тестов используйте команду 
+    ```
+    ./gradlew -Ddb.url=jdbc:postgresql://localhost:5432/app clean test
+    ```
+ * Для получения отчета в браузере Allure используйте команду `gradlew allureServe`
+ * После окончания тестов остановите контейнеры командой `docker-compose down` и завершите работу приложения
