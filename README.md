@@ -44,5 +44,5 @@
     ```
     ./gradlew -Ddb.url=jdbc:postgresql://localhost:5432/app clean test
     ```
- * Для получения отчета в браузере Allure используйте команду `gradlew allureServe`
+ * Для получения отчета в браузере Allure используйте команду `./gradlew allureServe`
  * После окончания тестов остановите контейнеры командой `docker-compose down` и завершите работу приложения
