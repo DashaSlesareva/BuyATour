@@ -9,7 +9,6 @@ import page.IntroPage;
 import page.PayWithCard;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class PayWithCardTests {
     private IntroPage introPage;
